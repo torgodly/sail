@@ -27,6 +27,9 @@ chown -R www-data:www-data /app/bootstrap/cache
 # Generate app key for laravel
 php /app/artisan key:generate
 
+# Wait for a few seconds before starting supervisor
+sleep 5
+
 
 # Start supervisor
 supervisord -c /etc/supervisord.conf -n
