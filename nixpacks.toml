@@ -21,14 +21,13 @@ cmd = '/assets/start.sh'
 node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
 
 # Set permissions for storage and bootstrap cache for laravel
-chown -R www-data:www-data /app/storage
-chown -R www-data:www-data /app/bootstrap/cache
+sudo chmod -R 775 storage
+sudo chown -R www-data:www-data storage
+
 
 # Generate app key for laravel
 php /app/artisan key:generate
 
-# Wait for a few seconds before starting supervisor
-sleep 5
 
 
 # Start supervisor
