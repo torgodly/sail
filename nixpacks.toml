@@ -1,0 +1,27 @@
+[phases.setup]
+cmds = [
+  "export APP_KEY=$(php artisan key:generate --show)",
+  "export DB_CONNECTION=sqlite",
+  "composer install --prefer-dist --no-interaction --optimize-autoloader --no-dev",
+  "npm ci --only=local",
+  "chmod -R 777 storage",
+  "chmod -R 777 bootstrap/cache"
+]
+
+[phases.install]
+cmds = [
+  "composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader",
+  "npm install"
+]
+
+[phases.build]
+cmds = [
+  "npm run build",
+  "php artisan migrate --force",
+  "php artisan optimize",
+  "php artisan config:cache",
+  "php artisan route:cache",
+  "php artisan view:cache",
+  "php artisan queue:work --daemon --queue=default --sleep=3 --tries=3",
+  "php artisan schedule:run"
+]
