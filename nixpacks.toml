@@ -21,8 +21,8 @@ cmd = '/assets/start.sh'
 node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
 
 # Set permissions for storage and bootstrap cache for laravel
-sudo chmod -R 775 storage
-sudo chown -R www-data:www-data storage
+chmod -R 775 storage
+chown -R www-data:www-data storage
 
 
 # Generate app key for laravel
