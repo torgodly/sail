@@ -3,7 +3,6 @@ cmds = [
   "export APP_KEY=$(php artisan key:generate --show)",
   "export DB_CONNECTION=sqllite",
   "composer install --prefer-dist --no-interaction --optimize-autoloader --no-dev",
-  "npm ci --only=production",
   "chmod -R 777 storage",
   "chmod -R 777 bootstrap/cache"
 ]
