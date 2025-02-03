@@ -18,6 +18,7 @@ cmds = [
 
     "touch /app/database/database.sqlite",
     "chown www-data:www-data /app/database/database.sqlite",
+    
     "chmod 664 /app/database/database.sqlite",
 
     "..."
