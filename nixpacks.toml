@@ -39,10 +39,10 @@ node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
 # su -s /bin/bash -c "php /app/artisan filament:optimize" www-data
 
 # Run Laravel migrate:refresh --seed
-# su -s /bin/bash -c "php artisan migrate:refresh --seed --force" www-data
+# su -s /bin/bash -c "php /app/artisan migrate:refresh --seed --force" www-data
 
 # Run storage link
-# su -s /bin/bash -c "php artisan storage:link" www-data
+# su -s /bin/bash -c "php /app/artisan storage:link" www-data
 
 # Start supervisor
 supervisord -c /etc/supervisord.conf -n
